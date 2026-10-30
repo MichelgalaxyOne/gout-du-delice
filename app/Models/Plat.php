@@ -10,16 +10,14 @@ class Plat extends Model
     use HasFactory;
 
     protected $fillable = [
-        'categorie_id',
-        'nom',
-        'description',
-        'prix',
-        'image',
-        'disponible',
-        'temps_preparation',
-        'allergenes',
-    ];
-
+    'categorie_id',
+    'nom',
+    'description',
+    'prix',
+    'disponible',
+    'temps_preparation',
+    'allergenes',
+];
     protected function casts(): array
     {
         return [
@@ -38,4 +36,14 @@ class Plat extends Model
     {
         return $this->hasMany(CommandeItem::class);
     }
+
+    public function images()
+{
+    return $this->hasMany(PlatImage::class);
+}
+
+public function imagePrincipale()
+{
+    return $this->hasOne(PlatImage::class)->where('principale', true);
+}
 }

@@ -1,59 +1,132 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🍽️ Le Goût du Délice
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A restaurant management web app: customers scan the **QR code on their table**, browse the menu and order without leaving their seat. The order reaches the front desk, which passes it on to the kitchen.
 
-## About Laravel
+> ⚠️ Work in progress. See [Project status](#project-status) for what already works.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+![Laravel](https://img.shields.io/badge/Laravel-12-red) ![PHP](https://img.shields.io/badge/PHP-8.2%2B-blue) ![Tailwind](https://img.shields.io/badge/Tailwind-CSS-38bdf8) ![Status](https://img.shields.io/badge/status-in%20development-orange)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🎬 Demo
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **Live demo:** _to be added_
+- **Screenshots:** _to be added in `docs/screenshots/`_ (landing page, manager dashboard, dish management, table QR codes)
 
-## Learning Laravel
+## 💡 Goal
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+A restaurant in Benin where every table has its own QR code:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1. The customer scans the QR code and opens the menu for their table.
+2. They order from their seat, without calling a waiter.
+3. The front desk receives the order and sends it to the kitchen.
+4. The manager follows the activity from a dashboard.
 
-## Laravel Sponsors
+Planned: remote ordering (from home, work or anywhere in town) with delivery, table reservation in advance, a newsletter, and Mobile Money payment.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## ✅ Project status
 
-### Premium Partners
+| Feature | Status |
+|---|---|
+| Public landing page | ✅ Done |
+| Newsletter subscription / unsubscribe link | ✅ Done |
+| Authentication with roles (manager, waitress, kitchen) | ✅ Done |
+| Manager dashboard: today's orders, sales, orders in progress | ✅ Done |
+| Category management (create, edit, enable/disable, delete) | ✅ Done |
+| Dish management (CRUD, multiple images, main image, enable/disable) | ✅ Done |
+| Table management and QR code generation (SVG) | ✅ Done |
+| Front desk (waitress) and kitchen screens | 🟡 Order display only |
+| Full database schema (orders, payments, deliveries, delivery staff, newsletters) | ✅ Done |
+| Customer menu page opened through the QR code | 🚧 In progress |
+| Customer ordering | 🚧 To do |
+| Mobile Money payment (MTN, Moov, Celtiis) | 🚧 To do |
+| Delivery and delivery staff tracking | 🚧 To do |
+| Table reservation | 🚧 To do |
+| Sending newsletters | 🚧 To do |
+| Real-time kitchen/front desk notifications (Laravel Reverb) | 🚧 Configured, not wired yet |
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## 🧰 Tech stack
 
-## Contributing
+- **Backend:** Laravel 12, PHP 8.2+
+- **Database:** SQLite by default (MySQL supported)
+- **Frontend:** Blade, Tailwind CSS, Alpine.js, Vite
+- **Authentication:** Laravel Breeze
+- **QR codes:** simplesoftwareio/simple-qrcode
+- **PDF:** barryvdh/laravel-dompdf
+- **Real time:** Laravel Reverb (prepared)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 🚀 Getting started
 
-## Code of Conduct
+Requirements: PHP 8.2+, Composer, Node.js and npm.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+git clone https://github.com/MichelgalaxyOne/gout-du-delice.git
+cd gout-du-delice
 
-## Security Vulnerabilities
+composer install
+npm install
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+cp .env.example .env
+php artisan key:generate
 
-## License
+# SQLite database (default in .env.example)
+touch database/database.sqlite
+php artisan migrate --seed
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+# Makes the generated QR codes reachable from the browser
+php artisan storage:link
+
+# In two terminals
+php artisan serve
+npm run dev
+```
+
+The app is then available at http://127.0.0.1:8000.
+
+## 🔑 Demo accounts
+
+Created by `php artisan migrate --seed`:
+
+| Role | Email | Password |
+|---|---|---|
+| Manager | gerant@delice.com | gerant123 |
+| Waitress | serveuse@delice.com | password |
+| Kitchen | cuisine@delice.com | password |
+
+> These accounts are for demonstration only. Never keep them in production.
+
+The seeder also creates 25 tables, 4 categories (Starters, Mains, Drinks, Desserts) and a few sample dishes.
+
+## 🗂️ Project structure
+
+```
+app/Http/Controllers/   Manager, Waitress, Kitchen, Landing, Newsletter
+app/Http/Middleware/    Role-based access control
+app/Models/             Plat, Categorie, Commande, RestoTable, Paiement, Livraison…
+database/migrations/    Database schema
+database/seeders/       Demo data
+resources/views/        gerant/, serveuse/, cuisine/, landing, newsletter/
+routes/web.php          Routes per role (/gerant, /serveuse, /cuisine)
+```
+
+## 🗺️ Roadmap
+
+1. Customer menu page reachable through the QR code
+2. Cart and order placement
+3. Mobile Money payment (MTN, Moov, Celtiis) and cash payment
+4. Real-time notifications for the kitchen and front desk
+5. Online ordering with delivery
+6. Table reservation in advance
+7. Newsletter sending (promotions, new menu, news)
+
+## 🔒 Security
+
+- The `.env` file is never committed: use `.env.example` as a template.
+- Change all demo passwords before any real deployment.
+- Set `APP_DEBUG=false` in production.
+
+## 👤 Author
+
+**Marie-Michel HOUNKPE**: [GitHub @MichelgalaxyOne](https://github.com/MichelgalaxyOne)
+
+## 📄 License
+
+Released under the MIT license (add a `LICENSE` file to confirm).

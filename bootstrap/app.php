@@ -11,9 +11,13 @@ return Application::configure(basePath: dirname(__DIR__))
         channels: __DIR__.'/../routes/channels.php',
         health: '/up',
     )
-    ->withMiddleware(function (Middleware $middleware): void {
-        //
-    })
+    ->withMiddleware(function (Middleware $middleware) {
+    $middleware->alias([
+        'gerant' => \App\Http\Middleware\GerantMiddleware::class,
+        'serveuse' => \App\Http\Middleware\ServeuseMiddleware::class,
+        'cuisine' => \App\Http\Middleware\CuisineMiddleware::class,
+    ]);
+})
     ->withExceptions(function (Exceptions $exceptions): void {
         //
     })->create();
